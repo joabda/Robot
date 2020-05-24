@@ -42,15 +42,7 @@ int main()
 	{
 		for ( uint8_t j=0; j < 20; j++ ) 
 			transmissionUART ( mots[j] );
-			_delay_ms(5); 
-			// mettre un delay apres chaque transmission pour laisser le temps 
-	}
-	
-	
-	/*
-	_delay_ms(5);
-	char fin [] = "fin";
-	for(int i = 0; i < sizeof(fin)-1; i ++)
-		transmissionUART(fin[i]);
-		*/
+		_delay_ms(5); 
+		// mettre un delay apres chaque transmission pour laisser le temps 
+	}y
 }

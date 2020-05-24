@@ -1,0 +1,120 @@
+#---------------------------------------------------------------------------#
+#----------------------En tete de fichier-----------------------------------#
+#---------------------------------------------------------------------------#
+# Code mnemonique compile avec progmem permettant d'enregistrer 
+# des instructions dans une memoire externe pour les executer
+# sur le microcontroleur ATMega16 de Atmel.
+#---------------------------------------------------------------------------#
+# Ecole Polytechnique de Montreal
+# Departement de genie informatique
+# Cours inf1990
+#---------------------------------------------------------------------------#
+# Theo Quiquempoix, Philippe Babin, Joe Abdo et Mathurin Critin
+# Mars 2019
+#---------------------------------------------------------------------------#
+# Code qui n'est sous aucune license.
+#---------------------------------------------------------------------------#
+#--------------------------Fin d'entete-------------------------------------#
+#---------------------------------------------------------------------------#
+
+
+#---------------------------------------------------------------------------#
+#--------------------------Sequence executee--------------------------------#
+#---------------------------------------------------------------------------#
+
+#debut
+#SONORITE (camion beep beep)
+#LED
+#attendre ...
+#boucle
+#	tour complet a gauche
+#	tour complet a droite
+#	avancer 2s
+#	reculer 2s
+#fin boucle 
+#fin
+
+#---------------------------------------------------------------------------#
+#--------------------------Fin d'entete-------------------------------------#
+#---------------------------------------------------------------------------#
+
+
+
+#---------------------------------------------------------------------------#
+#---------------------------Début du programme------------------------------#
+#---------------------------------------------------------------------------#
+
+sgo 60;
+dal 1;
+att 40;
+
+dbt;
+
+#---------------------------------------------------------------------------#
+#-----------------Son camion (boucle + buzzer) -----------------------------#
+#---------------------------------------------------------------------------#
+
+dbc 5;
+
+sgo 60;				# Sonorite
+det 1;				# Eteindre la LED
+att 15;				# Attente
+sar;				# Arret sonorite
+sar;
+dal 1;				# Allumage LED
+att 15;				# Attente
+
+fbc;
+
+#---------------------------------------------------------------------------#
+#-----------------LED - Séquence de 2 allumages successifs------------------#
+#---------------------------------------------------------------------------#
+
+dal 2;				#allumer la DEL1 donc sur le PORT 0 (del 0 n'a aucun effet apparemment, j'en déduis que l'opérande correspond au numéro de la PIN (donc PORT+1))
+att 20;				#attendre 1 seconde
+det 2;				#éteindre la DEL1
+att 20;				#attendre 1 sec
+dal 2;				#rallumer la DEL1
+att 20;				#attendre 1 sec
+det 2;				#réteindre la DEL1
+att 20;				#attendre 1 sec
+
+#---------------------------------------------------------------------------#
+#---------------------------Boucle + moteur---------------------------------#
+#---------------------------------------------------------------------------#
+
+dbc 1;				#boucle principale de 2 fois
+	
+	#pas le droit d'imbriquer 2 boucles, donc répétitions
+
+	trg;			#tourner à gauche de 90 deg
+    att 20;
+	trg;			#tourner à gauche de 90 deg
+    att 20;
+	#----------si tout se passe bien on est revenu au point de départ
+	trd;			#tourner à droite de 90 deg
+    att 20;
+	trd;			#tourner à droite de 90 deg
+    att 20;
+	#----------si tout se passe bien on est revenu au point de départ
+	
+    mav 128; 			#avancer vers l'avant à 50% du PWM (100% = 255)
+	att 80;			#petit delay (2 sec)
+	mar;			#arrêter les moteurs
+	mre 128;			#reculer à 50% du PWM
+	att 80;			#petit delay (2 sec)
+	mar;			#arrêter les moteurs
+	mar;
+	
+fbc;				#fin de la boucle principale
+
+#---------------------------------------------------------------------------#
+#--------------------------Fin de sequence----------------------------------#
+#---------------------------------------------------------------------------#
+
+fin;
+
+sgo 60;
+dal 1;
+att 10;
+

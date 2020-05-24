@@ -1,4 +1,42 @@
-This project is a first year university project.
-Please visit this website for more information: 
-	http://www.groupes.polymtl.ca/inf1900/
+# Robot
+First year project at Polytechnique Montreal
+Check out http://cours.polymtl.ca/inf1900/ for more.
+
+# Main Hardware
+    - Tamiya 70097 engines
+    - ATmega324PA
+    - ATmega8
+
+# Project structure
+    - Code 
+        Containing the code for all the labs from 2 to 9. 
+    - DIY 
+        Cause why not? PDF files to create your own project from scratch and why not take it to another level?
+    - Exec
+        * progmem
+            Executable used to work with the memory.
+        * serieViaUSB 
+            Executable used to send a receive data from the ATmega
+    - Libraries
+            Developed by the teachers.
+        * CAN
+        * Memory
+    - Project
+        * code
+            File code used
+        * Documentation
+            PDF for documentation
+        * Library
+            In House developed libraries to interact with the robot.
+        
+        
+# License
+----
+
+MIT
+
+# Contributors
+   *Mathurin Critin 
+   *Teo Quiquempoix 
+   *Philippe Babin
 
