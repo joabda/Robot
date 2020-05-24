@@ -1,13 +1,14 @@
+![](Images/inf1900.png)
 # Robot
 First year project at Polytechnique Montreal
 Check out http://cours.polymtl.ca/inf1900/ for more.
 
-# Main Hardware
+## Main Hardware
     - Tamiya 70097 engines
     - ATmega324PA
     - ATmega8
 
-# Project structure
+## Project structure
     - Code 
         Containing the code for all the labs from 2 to 9. 
     - DIY 
@@ -30,12 +31,12 @@ Check out http://cours.polymtl.ca/inf1900/ for more.
             In House developed libraries to interact with the robot.
         
         
-# License
+## License
 ----
 
 MIT
 
-# Contributors
+## Contributors
    *Mathurin Critin 
    *Teo Quiquempoix 
    *Philippe Babin
